@@ -1,5 +1,5 @@
-// const readFile = "./1259/input.txt";
-const readFile = "/dev/stdin";
+const readFile = "./1259/input.txt";
+// const readFile = "/dev/stdin";
 const input = require("fs")
     .readFileSync(readFile)
     .toString()
