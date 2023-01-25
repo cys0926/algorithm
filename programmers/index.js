@@ -2,7 +2,6 @@
 
 /**
  * redefine(재정의)
- *
  * @input
  *
  * @return
@@ -16,7 +15,10 @@
  */
 
 // solution(구현)
-
+(function () {
+    let EmptySpace = Symbol.for("EMPTY_SPACE");
+    console.log(EmptySpace);
+})();
 /**
  * 결과
  * @정확성
