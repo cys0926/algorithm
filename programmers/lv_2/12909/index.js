@@ -28,7 +28,6 @@ const s4 = "(()(";
 
 function solution(s) {
     let count = 0;
-    const arr = s.split("");
     for (let str of s) {
         str === "(" ? count++ : count--;
         if (count < 0) {
