@@ -9,16 +9,12 @@
  * @condition
  *
  * @algorithm
- * 해시 - Map
  *
  * @logic(psuedo)
  */
 
 // solution(구현)
-(function () {
-    let EmptySpace = Symbol.for("EMPTY_SPACE");
-    console.log(EmptySpace);
-})();
+
 /**
  * 결과
  * @정확성

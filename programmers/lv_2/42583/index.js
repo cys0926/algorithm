@@ -128,7 +128,6 @@ solution(bridge_length1, weight1, truck_weights1);
  *  check(검증) - Big O Notation
  *
  *  @time_complexity
- *  O(N)
  *
  *  @space_complexity
  *

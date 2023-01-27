@@ -25,28 +25,39 @@
 
 // solution(구현)
 const citations = [3, 0, 6, 1, 5];
+const citations2 = [2];
 
+// function solution(citations) {
+//     citations.sort((a, b) => a - b);
+//     let hIndex = citations.length;
+//
+//     while (hIndex >= 0) {
+//         const indexOfOverHIndex = citations.findIndex((value) => {
+//             return value >= hIndex;
+//         });
+//         if (indexOfOverHIndex === -1) {
+//             hIndex--;
+//             continue;
+//         }
+//         const higherCount = citations.length - indexOfOverHIndex;
+//         if (higherCount >= hIndex) {
+//             return hIndex;
+//         }
+//         hIndex--;
+//     }
+// }
 function solution(citations) {
-    citations.sort((a, b) => a - b);
-    let hIndex = citations.length;
-
-    while (hIndex >= 0) {
-        const indexOfOverHIndex = citations.findIndex((value) => {
-            return value >= hIndex;
-        });
-        if (indexOfOverHIndex === -1) {
-            hIndex--;
-            continue;
-        }
-        const higherCount = citations.length - indexOfOverHIndex;
-        if (higherCount >= hIndex) {
-            return hIndex;
-        }
-        hIndex--;
+    //최댓값 리턴이기 때문에 내림차순으로 정렬
+    citations.sort((a, b) => b - a);
+    //논문의 피인용 수 === 해당 피인용 수 이상인 논문의 개수 이면 그게 답
+    for (let i = 0; i < citations.length; i++) {
+        if (i >= citations[i]) return i;
     }
+    //모든 원소가 배열의 길이와 같은 수일 때
+    return citations.length;
 }
 
-console.log(solution(citations));
+console.log(solution(citations2));
 
 /**
  * 결과

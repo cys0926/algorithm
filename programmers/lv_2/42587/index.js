@@ -163,7 +163,6 @@ console.log(solution(priorities1, location1));
  *  check(검증) - Big O Notation
  *
  *  @time_complexity
- *  O(N)
  *
  *  @space_complexity
  *

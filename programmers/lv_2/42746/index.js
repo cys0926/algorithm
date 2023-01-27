@@ -40,7 +40,15 @@ function solution(numbers) {
     return biggestNumber.replace(/^0+/, "0");
 }
 
-console.log(solution(number2));
+function solution(numbers) {
+    let answer = numbers
+        .sort((n1, n2) => "" + n2 + n1 - ("" + n1 + n2)) // 공간복잡도 O(n/2)
+        .join("");
+
+    return Number(answer) === 0 ? "0" : answer;
+}
+
+console.log(solution(number3));
 
 /**
  * 결과

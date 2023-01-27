@@ -30,6 +30,7 @@ const commands = [
     [4, 4, 1],
     [1, 7, 3],
 ];
+
 function solution(array, commands) {
     const answer = [];
     commands.forEach(([start, end, target]) => {
@@ -42,6 +43,7 @@ function solution(array, commands) {
     });
     return answer;
 }
+
 
 solution(array, commands);
 
