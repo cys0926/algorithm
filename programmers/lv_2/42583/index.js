@@ -88,16 +88,14 @@ function solution(bridge_length, weight, truck_weights) {
     while (bridge.length) {
         second++;
         bridge.dequeue();
+        const sumOfBridge = bridge.sum;
+        if (truck_weights.length && sumOfBridge + truck_weights[0] <= weight) {
+            bridge.enqueue(truck_weights.shift());
+        }
         if (truck_weights.length) {
-            const sumOfBridge = bridge.sum;
-            if (sumOfBridge + truck_weights[0] <= weight) {
-                bridge.enqueue(truck_weights.shift());
-            } else {
-                bridge.enqueue(0);
-            }
+            bridge.enqueue(0);
         }
     }
-
     return second;
 }
 
