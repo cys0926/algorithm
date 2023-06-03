@@ -86,6 +86,49 @@ function solution(x, y, n) {
     return -1;
 }
 
+function solution(x, y, n) {
+    if (x === y) {
+        return 0;
+    }
+
+    let currentTree = [x];
+    let count = 0;
+    const visited = new Set(currentTree);
+
+    while (currentTree.length) {
+        count++;
+        const nextTree = [];
+        for (let i = 0; i < currentTree.length; i++) {
+            const newValue1 = currentTree[i] + n;
+            const newValue2 = currentTree[i] * 2;
+            const newValue3 = currentTree[i] * 3;
+
+            if (newValue1 === y || newValue2 === y || newValue3 === y) {
+                return count;
+            }
+
+            if (newValue1 < y && !visited.has(newValue1)) {
+                visited.add(newValue1);
+                nextTree.push(newValue1);
+            }
+
+            if (newValue2 < y && !visited.has(newValue2)) {
+                visited.add(newValue2);
+                nextTree.push(newValue2);
+            }
+
+            if (newValue3 < y && !visited.has(newValue3)) {
+                visited.add(newValue3);
+                nextTree.push(newValue3);
+            }
+        }
+
+        currentTree = nextTree;
+    }
+
+    return -1;
+}
+
 console.log(solution(x3, y3, n3));
 
 /**

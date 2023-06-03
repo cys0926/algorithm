@@ -120,6 +120,44 @@ function solution(genres, plays) {
     return answer;
 }
 
+function solution(genres, plays) {
+    const answer = [];
+    const genresRankMap = new Map();
+
+    const musicArray = genres
+        .map((genre, index) => {
+            genresRankMap.set(
+                genre,
+                (genresRankMap.get(genre) || 0) + plays[index]
+            );
+            return { index, genre, play: plays[index] };
+        })
+        .sort((a, b) => {
+            if (a.genre !== b.genre) {
+                return genresRankMap.get(b.genre) - genresRankMap.get(a.genre);
+            }
+            if (a.play !== b.play) {
+                return b.play - a.play;
+            }
+            return a.index - b.index;
+        });
+
+    const duplicateFilter = new Map();
+
+    musicArray.forEach((value) => {
+        if (duplicateFilter.get(value.genre) === 2) {
+            return;
+        }
+        duplicateFilter.set(
+            value.genre,
+            (duplicateFilter.get(value.genre) || 0) + 1
+        );
+        answer.push(value.index);
+    });
+
+    return answer;
+}
+
 console.log(solution(genres, plays));
 
 // Object 로 구현

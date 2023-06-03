@@ -10,7 +10,7 @@ let S = new Set();
 for (let i = 0; i < numOfTestCase; i++) {
     // console.log("-----------")
     let [operator, num] = input[i].split(" ");
-    // console.log(operator, num)
+    // console.log(operator, sample)
     switch (operator) {
         case "add":
             S.add(num);
